@@ -4,7 +4,7 @@ public class ArrayListStack{
     private Integer[] elements;
     private int top;
 
-    public ArrayListStack{
+    public ArrayListStack(){
         elements = new Integer[10];
         top = 0;
     }

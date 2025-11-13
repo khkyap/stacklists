@@ -4,8 +4,8 @@ public class LinkedListStack{
     private Node <Integer> head;
     private int size;
 
-    public LinkedListStack{
-        this.head = head;
+    public LinkedListStack(){
+        this.head = null;
         this.size = 0;
     }
 
@@ -24,7 +24,10 @@ public class LinkedListStack{
     }
 
     public int peek(){
-    return head;
+        if (isEmpty()){
+            return null;
+        }
+    return head.getData();
     }
 
     public boolean isEmpty(){
