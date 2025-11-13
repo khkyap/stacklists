@@ -1,43 +1,41 @@
 import java.util.ArrayList;
 
 public class ArrayListStack{
-    private Integer[] elements;
-    private int top;
+    private ArrayList<Integer> list;
 
     public ArrayListStack(){
-        elements = new Integer[10];
-        top = 0;
+        this.list = new ArrayList<>();
     }
 
     public void push(int el){
-    top++;
-    elements[top] = el;
+    list.add(el);
     }
 
+
     public void pop(){
-    elements[top] = 0;
-    top--;
+    if (isEmpty()){
+        throw new IndexOutOfBoundsException("cant pop from empty stack");
+    }
+    list.remove(list.size() - 1);
     }
 
     public int peek(){
-    return top;
+    if (isEmpty()){
+        throw new IndexOutOfBoundsException("cant pop from empty stack");
+    }
+    return list.get(list.size() - 1);
     }
 
     public boolean isEmpty(){
-    if (top == 0){
-        if (elements[top] == null){
-            return true;
-        }
-    }
-    return false;
+    return list.isEmpty();
     }
 
     public int size(){
-        return size;
+        return list.size();
     }
 
     public String toString(){
-    elements.toString();
+    return list.toString();
     }
 
 }

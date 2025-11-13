@@ -1,48 +1,41 @@
 import java.util.LinkedList;
 
 public class LinkedListStack{
-    private Node <Integer> head;
-    private int size;
+    private LinkedList<Integer> list;
+    
 
     public LinkedListStack(){
-        this.head = null;
-        this.size = 0;
+        this.list = new LinkedList<>();
     }
 
     public void push(int el){
-    Node<Integer> n = new Node(el);
-        n.setNext(this.head);
-        this.head = n;
-        this.size++;
+    list.addFirst(el);
     }
 
     public void pop(){
-        if (this.head != null){
-    this.head = this.head.getNext();
-    this.size--;
+    if (isEmpty()){
+        throw new IndexOutOfBoundsException("cant pop from an empty stack");
     }
+    list.removeFirst();
     }
 
     public int peek(){
         if (isEmpty()){
-            return null;
-        }
-    return head.getData();
+        throw new IndexOutOfBoundsException("cant peek at an empty stack");
+    }
+    return list.getFirst();
     }
 
     public boolean isEmpty(){
-    if (head == null){
-        return true;
-    }
-    return false;
+    return list.isEmpty();
     }
 
     public int size(){
-        return size;
+        return list.size();
     }
 
     public String toString(){
-    elements.toString();
+    return list.toString();
     }
 
 
